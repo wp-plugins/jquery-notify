@@ -77,8 +77,8 @@ You would then use this style with `[jq_notify style="my-style-name"]` Content `
 == Screenshots ==
 
 1. The plugin in action, using the "success" style
-1. The plugin in action, using the "default" style
-1. The plugin in action, using the "error" style
+2. The plugin in action, using the "default" style
+3. The plugin in action, using the "error" style
 
 == Changelog ==
 
