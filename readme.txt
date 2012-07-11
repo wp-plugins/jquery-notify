@@ -42,7 +42,7 @@ feature requests.
 
 <h4>Shortcode</h4>
 The shortcode syntax is:
-`[jqnotify style=$style, speed=$speed, delay=$delay]` Content `[/jqnotify]`
+`[jq_notify style=$style, speed=$speed, delay=$delay] Content [/jq_notify]`
 
 `$style` (optional): sets the style of the panel. Options are: `default`, `error`, `warning`, and `success`
 `$speed` (optional): time it takes (in milliseconds) for the panel to slide out.  Larger numbers = slower. Default: 1000ms
@@ -67,12 +67,12 @@ jq_notify($content, 'default', 2000, 500, );`
 
 In your custom stylesheet for your theme, add a new selector, using the following as a template:
 
-`.jqnm_message.my-style-name{
+`.jqnm_my-style-name{
 		 background-color: #4ea5cd;
 		 border-color: #3b8eb5;
 }`
 
-You would then use this style with `[jq_notify style="my-style-name"]` Content `[/jq_notify]`
+You would then use this style with `[jq_notify style="my-style-name"] Content [/jq_notify]`
 
 == Screenshots ==
 
