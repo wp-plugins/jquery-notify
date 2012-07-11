@@ -31,8 +31,7 @@ Try a [demo](http://jquery-notify.mindsharelabs.com/).
 *   Comes with four styles: 'default' (blue), 'error' (red), 'warning' (orange), and 'success' (green)
 *   Supports unlimited user-created styles
 
-   We'll be working to add new features as we think of them. Please comment in the forum if you have any
-feature requests.
+   We'll be working to add new features as we think of them. Please comment in the forum if you have any feature requests.
 
 == Installation ==
 
@@ -44,8 +43,10 @@ feature requests.
 The shortcode syntax is:
 `[jq_notify style=$style, speed=$speed, delay=$delay] Content [/jq_notify]`
 
-**$style** (optional): sets the style of the panel. Options are: `default`, `error`, `warning`, and `success`
+**$style** (optional): sets the style of the panel. Options are: *default*, *error*, *warning*, and *success*
+
 **$speed** (optional): time it takes (in milliseconds) for the panel to slide out.  Larger numbers = slower. Default: 1000ms
+
 **$delay** (optional): delay (in milliseconds) between when the page has finished loading and when the panel slides out. Default: 500ms
 
 For example:
