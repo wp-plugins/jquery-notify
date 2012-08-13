@@ -3,7 +3,7 @@
 Plugin Name: jQuery Notify
 Plugin URI: http://jquery-notify.mindsharelabs.com/
 Description: An attractive, lightweight, and highly configurable jQuery notification pane.
-Version: 0.1
+Version: 0.2
 Author: Bryce Corkins / Mindshare Studios
 Author URI: http://mind.sh/are
 License: GPL2
@@ -28,18 +28,18 @@ if (!class_exists("jQuery_Notify")) {
 	class jQuery_Notify {
 
 		private $enable_jqnm;
+		private $options;
 		private $in_footer = true;
 		
 		//SHORTCODE PROPERTIES
 		private $content;
-		private $style;
-		private $speed;
-		private $delay;
 	
 		public function __construct() {
 			add_shortcode( 'jq_notify', array($this, 'shortcode'));
 			add_action('init', array($this, 'register_scripts'));
 			add_action('wp_footer', array($this, 'print_scripts'));
+			
+			$this->options = get_option('jqn_options');
 		}
 
 		public function register_scripts() {
@@ -63,9 +63,9 @@ if (!class_exists("jQuery_Notify")) {
 			$script_options = array( 'offset' => $admin_offset, 'speed' => $this->speed, 'delay' => $this->delay );
 		
 			wp_enqueue_style('jqnm-style', plugins_url('/style.css', __FILE__));
-			wp_localize_script('jqnm-script', 'jqnm_script_vars', $script_options);		
-			wp_print_scripts('jqnm-script');
-			add_action('wp_footer', array($this,'jqnm_output')); 
+			wp_localize_script('jqnm-script', 'jqnm_script_vars', $script_options);
+			wp_enqueue_script('jqnm-script');
+			add_action('wp_footer', array($this,'jqnm_output'));
 		}
 		
 		//TEMPLATE TAG
@@ -84,28 +84,36 @@ if (!class_exists("jQuery_Notify")) {
 			$this->enable_jqnm = true;
 			$this->content = $content;
 
+			if($this->options['custom_style']) {
+				$style = $this->options['custom_style'];
+			} else {
+				$style = $this->options['style'];
+			}
+
 			extract( shortcode_atts( array(
-		      'style' => 'default',
-			  'speed' => 500,
-		      'delay' => 1000
+		      'style' => $style,
+			  'speed' => $this->options['speed'],
+		      'delay' => $this->options['delay']
 		      ), $atts ) );
 		
 			$this->style = $style;
 			$this->speed = $speed;
 			$this->delay = $delay;
-		
+			
 		return $this->print_scripts();
 		}
 
 
 		//OUTPUT HTML
-		public function jqnm_output() { ?>
-			<div class="jqnm_<?php echo $this->style; ?> jqnm_message" title="click to dismiss">
+		public function jqnm_output() {
+			?>
+			<div class="jqnm_<?php echo $this->style; ?> jqnm_message">
 				<?php
 				 	echo $this->content;
+					if ($this->options['close_button'])
+						echo '<div class="jqn-close"></div>';
 				?>
 			</div>
-	
 		<?php }
 
 	} // End Class jQuery_Notify
@@ -117,9 +125,11 @@ if (class_exists("jQuery_Notify")) {
 	function jq_notify($content, $style, $speed, $delay)  
 	{  
 	    $jquery_notification = new jQuery_Notify();
-	    $jquery_notification->template_tag($content, $style, $speed, $delay);  
+		$options = get_option('jqn_options');
+	    $jquery_notification->template_tag($content, $style = $options['style'], $speed = $options['speed'], $delay = $options['delay']);  
 	}
 
 }
-
+if (is_admin())
+require_once( 'jqn-options.php'); // include options file
 ?>

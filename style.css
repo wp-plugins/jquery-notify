@@ -1,3 +1,12 @@
+.jqn-close {
+	width: 14px;
+	height: 14px;
+	background: url('close.png');
+	opacity: 0.7;
+	position: absolute;
+	right: 45px;
+	bottom: 20px;
+}
 .jqnm_message
 {
 		-webkit-background-size: 40px 40px;
@@ -36,8 +45,6 @@
 		 text-shadow: 0 1px 0 rgba(0,0,0,.5);
 		 -webkit-animation: animate-bg 5s linear infinite;
 		 -moz-animation: animate-bg 5s linear infinite;
-		 cursor:pointer;
-		 z-index:9999;
 }
 
 .jqnm_default{
@@ -63,7 +70,7 @@
 .jqnm_message h1, .jqnm_message h2, .jqnm_message h3, .jqnm_message h4 {
 	margin: 0 0 5px 0;
 	padding: 0;
-	color: #fff;
+	color: white;
 }
 
 .jqnm_message h3{
