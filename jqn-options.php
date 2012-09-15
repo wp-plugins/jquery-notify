@@ -321,6 +321,21 @@ class jQueryNotifyOptions extends jQuery_Notify {
 						'type'    => 'checkbox',
 						'std'     => 0 // Set to 1 to be checked by default, 0 to be unchecked by default.
 					);
+					
+					$this->settings['auto_hide'] = array(
+						'section' => 'general',
+						'title'   => __( 'Auto Hide' ),
+						'desc'    => __( 'Auto hide the notification after a delay' ),
+						'type'    => 'checkbox',
+						'std'     => 0 // Set to 1 to be checked by default, 0 to be unchecked by default.
+					);
+					$this->settings['hide_delay'] = array(
+						'title'   => __( 'Auto Hide Delay' ),
+						'desc'    => __( 'Time (in ms) before the notification is hidden' ),
+						'std'     => '2500',
+						'type'    => 'text',
+						'section' => 'general'
+					);
 
 					$this->settings['defaults_heading'] = array(
 						'section' => 'general',

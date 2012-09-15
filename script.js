@@ -21,6 +21,13 @@
 			 // When message is clicked, hide it
 			 $('.jqnm_message').click(function(){			  
 					  $(this).animate({top: -$(this).outerHeight()}, parseInt(jqnm_script_vars.speed));
-			  });		 		 
+			  });	
+			
+			if(jqnm_script_vars.autohide == 1) {
+				setTimeout(function(){
+				  $('.jqnm_message').animate({top: -$('.jqnm_message').outerHeight()}, parseInt(jqnm_script_vars.speed));
+				},jqnm_script_vars.hidedelay);
+			}
+				 		 
 	});
 })(jQuery);

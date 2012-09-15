@@ -60,7 +60,7 @@ if (!class_exists("jQuery_Notify")) {
 			if(is_admin_bar_showing())
 				$admin_offset = 28;
 		
-			$script_options = array( 'offset' => $admin_offset, 'speed' => $this->speed, 'delay' => $this->delay );
+			$script_options = array( 'offset' => $admin_offset, 'speed' => $this->speed, 'delay' => $this->delay, 'autohide' => $this->autohide, 'hidedelay' => $this->hidedelay );
 		
 			wp_enqueue_style('jqnm-style', plugins_url('/style.css', __FILE__));
 			wp_localize_script('jqnm-script', 'jqnm_script_vars', $script_options);
@@ -75,6 +75,13 @@ if (!class_exists("jQuery_Notify")) {
 			$this->style = $style;
 			$this->speed = $speed;
 			$this->delay = $delay;
+			
+			if(!isset($this->options['auto_hide'])) {
+				$this->autohide = 0;
+			} else {
+				$this->autohide = $this->options['auto_hide'];
+			}
+			$this->hidedelay = $this->options['hide_delay'];
 		
 		return $this->print_scripts();
 		}
@@ -99,6 +106,13 @@ if (!class_exists("jQuery_Notify")) {
 			$this->style = $style;
 			$this->speed = $speed;
 			$this->delay = $delay;
+			
+			if(!isset($this->options['auto_hide'])) {
+				$this->autohide = 0;
+			} else {
+				$this->autohide = $this->options['auto_hide'];
+			}
+			$this->hidedelay = $this->options['hide_delay'];
 			
 		return $this->print_scripts();
 		}
@@ -126,7 +140,11 @@ if (class_exists("jQuery_Notify")) {
 	{  
 	    $jquery_notification = new jQuery_Notify();
 		$options = get_option('jqn_options');
-	    $jquery_notification->template_tag($content, $style = $options['style'], $speed = $options['speed'], $delay = $options['delay']);  
+		// For each property, if nothing is set, apply the default
+		$style = isset($style) ? $style : $options['style'];
+		$speed = isset($speed) ? $speed : $options['speed'];
+		$delay = isset($delay) ? $delay : $options['delay'];
+	    $jquery_notification->template_tag($content, $style, $speed, $delay);  
 	}
 
 }

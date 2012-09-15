@@ -4,7 +4,7 @@ Donate link: http://jquery-notify.mindsharelabs.com/
 Tags: notification, notify, jquery, popup, message
 Requires at least: 3.0
 Tested up to: 3.4.1
-Stable tag: 0.2
+Stable tag: 0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -60,7 +60,7 @@ For example:
 `jq_notify($content, $style, $speed, $delay)`
 
 For example:
-`$notification = "<h3>This is the content</h3><p>And this is some more</p>";
+`$content = "<h3>This is the content</h3><p>And this is some more</p>";
 jq_notify($content, 'default', 2000, 500, );`
 
 
@@ -71,7 +71,7 @@ jq_notify($content, 'default', 2000, 500, );`
 
 In your custom stylesheet for your theme, add a new selector, using the following as a template:
 
-`.jqnm_my-style-name{
+`.jqnm_message.my-style-name{
 		 background-color: #4ea5cd;
 		 border-color: #3b8eb5;
 }`
@@ -81,8 +81,15 @@ You would then use this style with `[jq_notify style="my-style-name"] Content [/
 
 == Screenshots ==
 
+1. The plugin in action, using the "success" style
+2. The plugin in action, using the "default" style
+3. The plugin in action, using the "error" style
 
 == Changelog ==
+
+= 0.3 =
+*   Fixed issue with default parameters not being applied to the template tag (thanks, jefs42)
+*   Added option to auto-hide notification pane after a delay
 
 = 0.2 =
 *   Added options page
