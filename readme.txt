@@ -1,5 +1,5 @@
 === jQuery Notify ===
-Contributors: mindshare, sekatsim
+Contributors: mindshare
 Donate link: http://jquery-notify.mindsharelabs.com/
 Tags: notification, notify, jquery, popup, message
 Requires at least: 3.0
