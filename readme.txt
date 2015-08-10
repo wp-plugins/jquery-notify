@@ -87,7 +87,7 @@ You would then use this style with `[jq_notify style="my-style-name"] Content [/
 
 == Changelog ==
 
-= 0.4 ==
+= 0.4 =
 * Updated for Git repo, tested on WP 4.3
 
 = 0.3 =
