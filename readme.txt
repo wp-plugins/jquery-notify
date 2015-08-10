@@ -5,8 +5,8 @@ Tags: notification, notify, jquery, popup, message
 Requires at least: 3.0
 Tested up to: 4.3
 Stable tag: 0.4
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: GPLv3
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 An attractive, lightweight, and highly configurable jQuery notification pane.
 
