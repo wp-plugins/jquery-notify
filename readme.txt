@@ -4,9 +4,9 @@ Donate link: http://jquery-notify.mindsharelabs.com/
 Tags: notification, notify, jquery, popup, message
 Requires at least: 3.0
 Tested up to: 4.3
-Stable tag: 0.4.1
-License: GPLv3
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Stable tag: 0.4
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 An attractive, lightweight, and highly configurable jQuery notification pane.
 
@@ -37,7 +37,7 @@ feature requests.
 == Installation ==
 
 1. Upload the `jquery-notify` folder to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
+2. Activate the plugin through the 'Plugins' menu in WordPress
 
 <h4>Shortcode</h4>
 The shortcode syntax is:
@@ -63,6 +63,8 @@ For example:
 `$content = "<h3>This is the content</h3><p>And this is some more</p>";
 jq_notify($content, 'default', 2000, 500, );`
 
+
+
 == Frequently Asked Questions ==
 
 = How do I add custom styles? =
@@ -76,6 +78,7 @@ In your custom stylesheet for your theme, add a new selector, using the followin
 
 You would then use this style with `[jq_notify style="my-style-name"] Content [/jq_notify]`
 
+
 == Screenshots ==
 
 1. The plugin in action, using the "success" style
@@ -84,7 +87,7 @@ You would then use this style with `[jq_notify style="my-style-name"] Content [/
 
 == Changelog ==
 
-= 0.4 ==
+= 0.4 =
 * Updated for Git repo, tested on WP 4.3
 
 = 0.3 =
